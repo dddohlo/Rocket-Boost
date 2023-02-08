@@ -7,21 +7,22 @@ public class Movement : MonoBehaviour
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationThrust = 200f;
     Rigidbody rb;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.drag = 3f;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         ProcessThrust();
-        ProcessRotation();
+        ProcessRotation();    
     }
-    
+
     void ProcessThrust() 
     {
         if (Input.GetKey(KeyCode.Space))
@@ -29,7 +30,12 @@ public class Movement : MonoBehaviour
             // relative to transform coordinates
             // Vector3.up = 0,1,0
             rb.AddRelativeForce(Vector3.up *  mainThrust * Time.deltaTime);
-        }
+            if (!audioSource.isPlaying) {
+                audioSource.Play();
+            }
+        } else {
+                audioSource.Stop();
+            }
 
     }
 
@@ -41,6 +47,7 @@ public class Movement : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D)){
             ApplyRotation(-rotationThrust);
+
         }
     }
 
