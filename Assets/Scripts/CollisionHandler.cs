@@ -9,15 +9,24 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float delay = 1f;
     [SerializeField] AudioClip crash;
     [SerializeField] AudioClip success;
+    [SerializeField] ParticleSystem crashParticles;
+    [SerializeField] ParticleSystem successParticles;
 
     // CACHE
     AudioSource audioSource;
+
+    // STATE
+    bool inTransition = false;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
     void OnCollisionEnter(Collision other) {
+        
+        if (inTransition) { return; }
+
         switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -34,14 +43,20 @@ public class CollisionHandler : MonoBehaviour
 
     void StartSuccessSequence()
     {
+        inTransition = true;
+        audioSource.Stop();
         audioSource.PlayOneShot(success);
+        successParticles.Play();
         GetComponent<Movement>().enabled = false;
         Invoke("LoadNextLevel", delay);
     }
 
     void StartCrashSequence()
     {
+        inTransition = true;
+        audioSource.Stop();
         audioSource.PlayOneShot(crash);
+        crashParticles.Play();
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", delay);
     }

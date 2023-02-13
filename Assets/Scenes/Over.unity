@@ -301,6 +301,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1170563947 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4311289878652904362, guid: b6395910c09bacc4dbc176fcb2749fef, type: 3}
+  m_PrefabInstance: {fileID: 7897736678295851535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1257083688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -362,6 +367,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c770ce43720d9540aa36cda58146642, type: 3}
+--- !u!198 &1672695596 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9004936520161297800, guid: b6395910c09bacc4dbc176fcb2749fef, type: 3}
+  m_PrefabInstance: {fileID: 7897736678295851535}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &651441645336724969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -499,6 +509,14 @@ PrefabInstance:
       propertyPath: success
       value: 
       objectReference: {fileID: 8300000, guid: cbe55a828eca7ee42b9badd08542b4e6, type: 3}
+    - target: {fileID: 227837487, guid: b6395910c09bacc4dbc176fcb2749fef, type: 3}
+      propertyPath: crashParticles
+      value: 
+      objectReference: {fileID: 1170563947}
+    - target: {fileID: 227837487, guid: b6395910c09bacc4dbc176fcb2749fef, type: 3}
+      propertyPath: successParticles
+      value: 
+      objectReference: {fileID: 1672695596}
     - target: {fileID: 378627472802401883, guid: b6395910c09bacc4dbc176fcb2749fef, type: 3}
       propertyPath: m_RootOrder
       value: 5
