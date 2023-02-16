@@ -1036,8 +1036,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30af2638e1c5a0648b369bd53fa3ee07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementVector: {x: 0, y: 0, z: 0}
-  movementFactor: 0
+  movementVector: {x: -10, y: 0, z: 0}
+  period: 5
 --- !u!1001 &2043316018
 PrefabInstance:
   m_ObjectHideFlags: 0
